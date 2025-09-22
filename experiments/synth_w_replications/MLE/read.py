@@ -12,7 +12,6 @@ fs = 16
 plt.rcParams.update({
     'figure.figsize': (6,4),
     "text.usetex": True,
-    # "font.family": "Helvetica",
     "font.size": fs,
     'axes.labelsize': fs,
     'axes.titlesize': fs*1.2,
@@ -25,8 +24,6 @@ plt.rcParams.update({
 # gather the results #
 ######################
 
-path="C:/Users/adminuser/Documents/GitHub/Covid_R_L_estim/" # path to project folder
-# expe_folder = path + "experiments/1D_grid_searches/pwlinReg_only/"
 expe_folder = "/".join(__file__.split("\\")[:-1])+"/" # path to the parent folder of this file
 res_folder = expe_folder+ "expe_res/"
 synth_folder = "/".join(__file__.split("\\")[:-2])+"/" # path to the grand parent folder of this file
@@ -50,8 +47,6 @@ def names_from_indices(data_index):
 mRSEs = []
 
 for data_i, data_index in enumerate(data_indices):
-
-    # print("Replication {} ({}/{})".format(data_index, data_i+1, len(data_indices)))
 
     data_file_name = data_folder+"data_{}.pickle".format(data_index)
     with open(data_file_name, 'rb') as handle:
@@ -81,13 +76,5 @@ average = np.mean(mRSEs)
 width_CI = 1.96 * np.std(mRSEs) / np.sqrt(len(mRSEs))
 
 print("average mRSE(R) : {:5.3f} (\pm {:5.3f})".format(average*1e4, width_CI*1e4))
-    
-    
-# Lhats = []
-# for i_comb in all_i_comb:
-#     LfullName = res_folder+names_from_indices(i_comb)["L"]+".pickle"
-#     with open(LfullName, 'rb') as handle:
-#             Lhat = pickle.load(handle)
-#             Lhats.append(Lhat)
 
 

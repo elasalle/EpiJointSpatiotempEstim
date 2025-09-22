@@ -18,7 +18,6 @@ np.random.seed(2025)
 # Set path and folders #
 ########################
 
-path="C:/Users/adminuser/Documents/GitHub/Covid_R_L_estim/" # path to project folder
 data_folder = "/".join(__file__.split("\\")[:-2])+"/" + "data/"
 expe_folder = "/".join(__file__.split("\\")[:-1])+"/"
 res_folder = expe_folder + "expe_res/"
@@ -43,7 +42,7 @@ with open(data_folder+"parameters.pickle", 'rb') as handle:
 # set parameters for the estimation #
 #####################################
 
-data_indices = range(0, parameters["N_replica"])
+data_indices = range(parameters["N_replica"])
 max_iter=1
 omegas=None
 init_method="epiEstim"

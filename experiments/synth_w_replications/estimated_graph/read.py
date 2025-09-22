@@ -12,7 +12,6 @@ fs = 16
 plt.rcParams.update({
     'figure.figsize': (6,4),
     "text.usetex": True,
-    # "font.family": "Helvetica",
     "font.size": fs,
     'axes.labelsize': fs,
     'axes.titlesize': fs*1.2,
@@ -25,8 +24,6 @@ plt.rcParams.update({
 # gather the results #
 ######################
 
-path="C:/Users/adminuser/Documents/GitHub/Covid_R_L_estim/" # path to project folder
-# expe_folder = path + "experiments/1D_grid_searches/pwlinReg_only/"
 expe_folder = "/".join(__file__.split("\\")[:-1])+"/" # path to the parent folder of this file
 res_folder = expe_folder+ "expe_res/"
 synth_folder = "/".join(__file__.split("\\")[:-2])+"/" # path to the grand parent folder of this file
@@ -58,8 +55,6 @@ allmRSEs = []
 
 for data_i, data_index in enumerate(data_indices):
 
-    # print("Replication {} ({}/{})".format(data_index, data_i+1, len(data_indices)))
-
     data_file_name = data_folder+"data_{}.pickle".format(data_index)
     with open(data_file_name, 'rb') as handle:
         data = pickle.load(handle)
@@ -84,13 +79,8 @@ for data_i, data_index in enumerate(data_indices):
     metrics = np.array(et.compute_rse_nested(Rhats, Rstar, sum_axis=sa, ))
     allmRSEs.append(metrics)
 
-    #print best parameters
     argmin_index = np.argmin(metrics)
     best_params = all_params_comb[argmin_index]
-    # print("  Best parameters:")
-    # for best_p, name in zip(best_params, params_names):
-    #     print("  {} : {}".format(name, best_p))
-    # print("  min MSE : {}".format(np.min(metrics)))
     mRSEs.append(np.min(metrics))
 
 average = np.mean(mRSEs)
@@ -102,8 +92,6 @@ print("average mRSE(R) : {:5.3f} (\pm {:5.3f})".format(average*1e4, width_CI*1e4
 Lstar = et.get_Lstar(cluster_sizes)
 mRSEs_L, f1s = [], []
 for data_i, data_index in enumerate(data_indices):
-
-    # print("Replication {} ({}/{})".format(data_index, data_i+1, len(data_indices)))
 
     data_file_name = data_folder+"data_{}.pickle".format(data_index)
     with open(data_file_name, 'rb') as handle:
