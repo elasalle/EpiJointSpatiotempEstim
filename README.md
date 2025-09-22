@@ -28,3 +28,7 @@ Each other folder (`blured_true_graph/`, `epiEstim`, `estimated_graph`, `MLE`, `
 - the parameters of the method are stored into `parameters.pickle` while the results of the methods are stored into the `expe_res/` folder.
 - the `read.py` file allows to read the results and evaluate the method. 
 Note: the run and read files must be run from the folder of the chosen method. 
+
+## Real data
+
+To reproduce the experiments on synthetic data go to the tutorial notebook `experiments/real_data/europe_africa_ipynb` that applies our method on a selection of some european and african countries. 
