@@ -15,28 +15,35 @@ def drawZ_uni(R, O, Z0, firstDay="2000-01-01", gamma=None, alpha=None):
 
 def drawZ_multi(cluster_sizes, R_by_cluster, O_by_cluster, ZData_by_cluster, with_O=True, firstDay="2000-01-01", gamma=None, alpha=None):
     nclusters = len(cluster_sizes)
+    C = np.sum(cluster_sizes)
     ZData_by_country = []
     extra = {
         "gammas" : []
     }
+
+    if gamma is None or np.isscalar(gamma):
+        gammas = [gamma]*C
+    elif isinstance(gamma, list) or isinstance(gamma, np.ndarray):
+        if len(gamma)==nclusters:
+            gammas = [gamma[i] for i in range(nclusters) for _ in range(cluster_sizes[i])]
+        elif len(gamma)==C:
+            gammas = gamma
+        else:
+            raise ValueError("Parameter gamma is a arraylike and should have length {} or {}, but has {}".format(nclusters, C, len(gamma)))
+    else:
+        raise ValueError("Parameter gamma should be None, scalar or array-like. Here, gamma is of type {}".format(type(gamma)))
+    
+    k = 0
     for i in range(nclusters):
         for _ in range(cluster_sizes[i]):
             if with_O:
                 O = O_by_cluster[i,:]
             else:
                 O = 0*O_by_cluster[i,:]
-            ZData, gamma_used = drawZ_uni(R_by_cluster[i,:], O, ZData_by_cluster[i][0], firstDay, alpha=alpha, gamma=gamma)
+            ZData, gamma_used = drawZ_uni(R_by_cluster[i,:], O, ZData_by_cluster[i][0], firstDay, alpha=alpha, gamma=gammas[k])
             extra["gammas"].append(gamma_used)
-            # if alpha is None:
-            #     gamma = 1
-            # else:
-            #     gamma = alpha*ZData_by_cluster[i][0]
-            # firstCases = gamma * np.random.poisson(ZData_by_cluster[i][0] / gamma)
-            # if not(with_O):
-            #     O_by_cluster = 0*O_by_cluster
-            # ZData, options = build.buildData_anyRO(R_by_cluster[i,:], O_by_cluster[i,:], firstCases, firstDay, alpha=gamma)
-
             ZData_by_country.append(ZData)
+            k+=1
     ZData_by_country = np.array(ZData_by_country)
     extra["gammas"] = np.array(extra["gammas"])
     return ZData_by_country, extra
