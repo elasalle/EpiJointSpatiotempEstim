@@ -1,6 +1,6 @@
 # 
 
-This repository contains the code associated to the article *Joint reproduction number and spatial connectivity structure esimtation via sparsity-promoting penalized functional*. 
+This repository contains the code associated to the article [Joint reproduction number and spatial connectivity structure esimtation via sparsity-promoting penalized functional](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11463060&tag=1). 
 
 # Installation
 
@@ -32,3 +32,7 @@ Note: the run and read files must be run from the folder of the chosen method.
 ## Real data
 
 To reproduce the experiments on synthetic data go to the tutorial notebook `experiments/real_data/europe_africa_ipynb` that applies our method on a selection of some european and african countries. 
+
+# Reference
+
+Parts of this repository are borrowed or adapted from the [Covid-R-estim Github repository](https://github.com/juliana-du/Covid-R-estim/). Precisions are available in the headings for the concerned files.
