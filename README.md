@@ -2,7 +2,7 @@
 
 This repository contains the code associated to the article  [(Lasalle and Pascal, 2026)](#reference)
 
-Parts of this repository are borrowed or adapted from the [Covid-R-estim Github repository](https://github.com/juliana-du/Covid-R-estim/). Precisions are available in the headings for the concerned files.
+Parts of this repository are borrowed or adapted from the [Covid-R-estim Github repository](https://github.com/juliana-du/Covid-R-estim/). Precisions are available in the headings of the concerned files.
 
 # Installation
 
