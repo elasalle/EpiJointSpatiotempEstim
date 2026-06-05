@@ -38,5 +38,5 @@ To reproduce the experiments on synthetic data go to the tutorial notebook `expe
 # Reference
 
 - Lasalle Etienne & Pascal Barbara, **Joint reproduction number and spatial connectivity structure estimation via graph sparsity-promoting penalized functional**. *IEEE International Conference on Acoustics, Speech and Signal Processing* (ICASSP), 2026. 
-[[Conference Raper]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11463060) [[arxiv]](https://arxiv.org/pdf/2509.20034)
+[[Conference paper]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11463060) [[arxiv]](https://arxiv.org/pdf/2509.20034)
 
