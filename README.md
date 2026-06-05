@@ -1,6 +1,8 @@
 # 
 
-This repository contains the code associated to the article [Joint reproduction number and spatial connectivity structure esimtation via sparsity-promoting penalized functional](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11463060&tag=1). 
+This repository contains the code associated to the article  [(Lasalle and Pascal, 2026)](#reference)
+
+Parts of this repository are borrowed or adapted from the [Covid-R-estim Github repository](https://github.com/juliana-du/Covid-R-estim/). Precisions are available in the headings for the concerned files.
 
 # Installation
 
@@ -35,4 +37,6 @@ To reproduce the experiments on synthetic data go to the tutorial notebook `expe
 
 # Reference
 
-Parts of this repository are borrowed or adapted from the [Covid-R-estim Github repository](https://github.com/juliana-du/Covid-R-estim/). Precisions are available in the headings for the concerned files.
+- Lasalle Etienne & Pascal Barbara, **Joint reproduction number and spatial connectivity structure estimation via graph sparsity-promoting penalized functional**. *IEEE International Conference on Acoustics, Speech and Signal Processing* (ICASSP), 2026. 
+[[Conference Raper]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11463060) [[arxiv]](https://arxiv.org/pdf/2509.20034)
+
